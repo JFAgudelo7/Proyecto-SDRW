@@ -1,0 +1,374 @@
+@prefix : <http://www.turismo-seguro.com/entrega1#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@base <http://www.turismo-seguro.com/entrega1> .
+
+<http://www.turismo-seguro.com/entrega1> rdf:type owl:Ontology .
+
+#################################################################
+#    Object Properties
+#################################################################
+
+###  http://www.turismo-seguro.com/entrega1#Del_departamento
+:Del_departamento rdf:type owl:ObjectProperty ;
+                  rdfs:subPropertyOf owl:topObjectProperty ;
+                  owl:inverseOf :Departamento_de ;
+                  rdf:type owl:TransitiveProperty ;
+                  rdfs:domain :Departamento ;
+                  rdfs:range :Municipio .
+
+
+###  http://www.turismo-seguro.com/entrega1#Departamento_de
+:Departamento_de rdf:type owl:ObjectProperty ;
+                 rdfs:subPropertyOf owl:topObjectProperty ;
+                 rdf:type owl:TransitiveProperty ;
+                 rdfs:domain :Municipio ;
+                 rdfs:range :Departamento .
+
+
+###  http://www.turismo-seguro.com/entrega1#del_municipio
+:del_municipio rdf:type owl:ObjectProperty ;
+               rdfs:subPropertyOf owl:topObjectProperty ;
+               owl:inverseOf :municipio_de ;
+               rdf:type owl:TransitiveProperty ;
+               rdfs:domain :Barrio ;
+               rdfs:range :Municipio .
+
+
+###  http://www.turismo-seguro.com/entrega1#del_pais
+:del_pais rdf:type owl:ObjectProperty ;
+          rdfs:subPropertyOf owl:topObjectProperty ;
+          owl:inverseOf :pais_del ;
+          rdf:type owl:TransitiveProperty ;
+          rdfs:domain :Departamento ;
+          rdfs:range :Pais .
+
+
+###  http://www.turismo-seguro.com/entrega1#localizado_en
+:localizado_en rdf:type owl:ObjectProperty ;
+               rdfs:subPropertyOf owl:topObjectProperty ;
+               rdfs:domain :Sitio_turistico ;
+               rdfs:range :Barrio ,
+                          :Departamento ,
+                          :Municipio ,
+                          :Pais .
+
+
+###  http://www.turismo-seguro.com/entrega1#municipio_de
+:municipio_de rdf:type owl:ObjectProperty ;
+              rdfs:subPropertyOf owl:topObjectProperty ;
+              rdf:type owl:TransitiveProperty ;
+              rdfs:domain :Barrio ;
+              rdfs:range :Municipio .
+
+
+###  http://www.turismo-seguro.com/entrega1#nacio_en_pais
+:nacio_en_pais rdf:type owl:ObjectProperty ;
+               rdfs:subPropertyOf owl:topObjectProperty ;
+               owl:inverseOf :pais_de_nacimiento_de ;
+               rdfs:domain :Pais ;
+               rdfs:range :Persona_victima .
+
+
+###  http://www.turismo-seguro.com/entrega1#pais_de_nacimiento_de
+:pais_de_nacimiento_de rdf:type owl:ObjectProperty ;
+                       rdfs:subPropertyOf owl:topObjectProperty ;
+                       rdfs:domain :Persona_victima ;
+                       rdfs:range :Pais .
+
+
+###  http://www.turismo-seguro.com/entrega1#pais_del
+:pais_del rdf:type owl:ObjectProperty ;
+          rdfs:subPropertyOf owl:topObjectProperty ;
+          rdf:type owl:TransitiveProperty ;
+          rdfs:domain :Pais ;
+          rdfs:range :Departamento .
+
+
+###  http://www.turismo-seguro.com/entrega1#tiene_arma_empleada
+:tiene_arma_empleada rdf:type owl:ObjectProperty ;
+                     rdfs:subPropertyOf owl:topObjectProperty ;
+                     rdf:type owl:FunctionalProperty ;
+                     rdfs:domain :Registro_capturas_2017 ,
+                                 :Registro_homicidios_2017 ,
+                                 :Registro_hurto_a_personas_2017 ,
+                                 :Registro_lesiones_personales_2017 ;
+                     rdfs:range :Arma_empleada .
+
+
+###  http://www.turismo-seguro.com/entrega1#tiene_barrio
+:tiene_barrio rdf:type owl:ObjectProperty ;
+              rdfs:subPropertyOf owl:topObjectProperty ;
+              rdfs:domain :Registro_capturas_2017 ,
+                          :Registro_homicidios_2017 ,
+                          :Registro_hurto_a_personas_2017 ,
+                          :Registro_lesiones_personales_2017 ;
+              rdfs:range :Barrio .
+
+
+###  http://www.turismo-seguro.com/entrega1#tiene_departamento
+:tiene_departamento rdf:type owl:ObjectProperty ;
+                    rdfs:subPropertyOf owl:topObjectProperty ;
+                    rdfs:domain :Registro_capturas_2017 ,
+                                :Registro_homicidios_2017 ,
+                                :Registro_hurto_a_personas_2017 ,
+                                :Registro_lesiones_personales_2017 ;
+                    rdfs:range :Departamento .
+
+
+###  http://www.turismo-seguro.com/entrega1#tiene_municipio
+:tiene_municipio rdf:type owl:ObjectProperty ;
+                 rdfs:subPropertyOf owl:topObjectProperty ;
+                 rdfs:domain :Registro_capturas_2017 ,
+                             :Registro_homicidios_2017 ,
+                             :Registro_hurto_a_personas_2017 ,
+                             :Registro_lesiones_personales_2017 ;
+                 rdfs:range :Municipio .
+
+
+#################################################################
+#    Data properties
+#################################################################
+
+###  http://www.turismo-seguro.com/entrega1#es_clase_de_empleado
+:es_clase_de_empleado rdf:type owl:DatatypeProperty ;
+                      rdfs:subPropertyOf owl:topDataProperty ;
+                      rdfs:domain :Persona_capturada ,
+                                  :Persona_victima .
+
+
+###  http://www.turismo-seguro.com/entrega1#tiene_Cantidad
+:tiene_Cantidad rdf:type owl:DatatypeProperty ;
+                rdfs:subPropertyOf owl:topDataProperty ;
+                rdfs:domain :Registro_capturas_2017 ,
+                            :Registro_homicidios_2017 ,
+                            :Registro_hurto_a_personas_2017 ,
+                            :Registro_lesiones_personales_2017 .
+
+
+###  http://www.turismo-seguro.com/entrega1#tiene_Clase_de_sitio
+:tiene_Clase_de_sitio rdf:type owl:DatatypeProperty ;
+                      rdfs:subPropertyOf owl:topDataProperty ;
+                      rdfs:domain :Registro_capturas_2017 ,
+                                  :Registro_homicidios_2017 ,
+                                  :Registro_hurto_a_personas_2017 ,
+                                  :Registro_lesiones_personales_2017 .
+
+
+###  http://www.turismo-seguro.com/entrega1#tiene_Codigo_DANE
+:tiene_Codigo_DANE rdf:type owl:DatatypeProperty ;
+                   rdfs:subPropertyOf owl:topDataProperty ;
+                   rdfs:domain :Registro_capturas_2017 ,
+                               :Registro_homicidios_2017 ,
+                               :Registro_hurto_a_personas_2017 ,
+                               :Registro_lesiones_personales_2017 .
+
+
+###  http://www.turismo-seguro.com/entrega1#tiene_Dia
+:tiene_Dia rdf:type owl:DatatypeProperty ;
+           rdfs:subPropertyOf owl:topDataProperty ;
+           rdfs:domain :Registro_capturas_2017 ,
+                       :Registro_homicidios_2017 ,
+                       :Registro_hurto_a_personas_2017 ,
+                       :Registro_lesiones_personales_2017 .
+
+
+###  http://www.turismo-seguro.com/entrega1#tiene_Edad
+:tiene_Edad rdf:type owl:DatatypeProperty ;
+            rdfs:subPropertyOf owl:topDataProperty ;
+            rdfs:domain :Persona_capturada ,
+                        :Persona_victima .
+
+
+###  http://www.turismo-seguro.com/entrega1#tiene_Escolaridad
+:tiene_Escolaridad rdf:type owl:DatatypeProperty ;
+                   rdfs:subPropertyOf owl:topDataProperty ;
+                   rdfs:domain :Persona_victima .
+
+
+###  http://www.turismo-seguro.com/entrega1#tiene_Estado_civil
+:tiene_Estado_civil rdf:type owl:DatatypeProperty ;
+                    rdfs:subPropertyOf owl:topDataProperty ;
+                    rdfs:domain :Persona_capturada ,
+                                :Persona_victima .
+
+
+###  http://www.turismo-seguro.com/entrega1#tiene_Fecha
+:tiene_Fecha rdf:type owl:DatatypeProperty ;
+             rdfs:subPropertyOf owl:topDataProperty ;
+             rdfs:domain :Registro_capturas_2017 ,
+                         :Registro_homicidios_2017 ,
+                         :Registro_hurto_a_personas_2017 ,
+                         :Registro_lesiones_personales_2017 .
+
+
+###  http://www.turismo-seguro.com/entrega1#tiene_Hora
+:tiene_Hora rdf:type owl:DatatypeProperty ;
+            rdfs:subPropertyOf owl:topDataProperty ;
+            rdfs:domain :Registro_capturas_2017 ,
+                        :Registro_homicidios_2017 ,
+                        :Registro_hurto_a_personas_2017 ,
+                        :Registro_lesiones_personales_2017 .
+
+
+###  http://www.turismo-seguro.com/entrega1#tiene_Movil_agresor
+:tiene_Movil_agresor rdf:type owl:DatatypeProperty ;
+                     rdfs:subPropertyOf owl:topDataProperty ;
+                     rdfs:domain :Registro_capturas_2017 ,
+                                 :Registro_homicidios_2017 ,
+                                 :Registro_hurto_a_personas_2017 ,
+                                 :Registro_lesiones_personales_2017 .
+
+
+###  http://www.turismo-seguro.com/entrega1#tiene_Movil_victima
+:tiene_Movil_victima rdf:type owl:DatatypeProperty ;
+                     rdfs:subPropertyOf owl:topDataProperty ;
+                     rdfs:domain :Registro_capturas_2017 ,
+                                 :Registro_homicidios_2017 ,
+                                 :Registro_hurto_a_personas_2017 ,
+                                 :Registro_lesiones_personales_2017 .
+
+
+###  http://www.turismo-seguro.com/entrega1#tiene_Profesion
+:tiene_Profesion rdf:type owl:DatatypeProperty ;
+                 rdfs:subPropertyOf owl:topDataProperty ;
+                 rdfs:domain :Persona_capturada ,
+                             :Persona_victima .
+
+
+###  http://www.turismo-seguro.com/entrega1#tiene_Sexo
+:tiene_Sexo rdf:type owl:DatatypeProperty ;
+            rdfs:subPropertyOf owl:topDataProperty ;
+            rdfs:domain :Persona_capturada ,
+                        :Persona_victima .
+
+
+###  http://www.turismo-seguro.com/entrega1#tiene_Zona
+:tiene_Zona rdf:type owl:DatatypeProperty ;
+            rdfs:subPropertyOf owl:topDataProperty ;
+            rdfs:domain :Registro_capturas_2017 ,
+                        :Registro_homicidios_2017 ,
+                        :Registro_hurto_a_personas_2017 ,
+                        :Registro_lesiones_personales_2017 .
+
+
+###  http://www.turismo-seguro.com/entrega1#tiene_delito_captura
+:tiene_delito_captura rdf:type owl:DatatypeProperty ;
+                      rdfs:subPropertyOf owl:topDataProperty ;
+                      rdfs:domain :Persona_capturada .
+
+
+###  http://www.turismo-seguro.com/entrega1#tiene_nombre
+:tiene_nombre rdf:type owl:DatatypeProperty ;
+              rdfs:subPropertyOf owl:topDataProperty ;
+              rdfs:domain :Sitio_turistico .
+
+
+#################################################################
+#    Classes
+#################################################################
+
+###  http://www.turismo-seguro.com/entrega1#Arma_empleada
+:Arma_empleada rdf:type owl:Class .
+
+
+###  http://www.turismo-seguro.com/entrega1#Barrio
+:Barrio rdf:type owl:Class .
+
+
+###  http://www.turismo-seguro.com/entrega1#Departamento
+:Departamento rdf:type owl:Class .
+
+
+###  http://www.turismo-seguro.com/entrega1#Municipio
+:Municipio rdf:type owl:Class .
+
+
+###  http://www.turismo-seguro.com/entrega1#Pais
+:Pais rdf:type owl:Class .
+
+
+###  http://www.turismo-seguro.com/entrega1#Persona_capturada
+:Persona_capturada rdf:type owl:Class .
+
+
+###  http://www.turismo-seguro.com/entrega1#Persona_victima
+:Persona_victima rdf:type owl:Class .
+
+
+###  http://www.turismo-seguro.com/entrega1#Registro_capturas_2017
+:Registro_capturas_2017 rdf:type owl:Class .
+
+
+###  http://www.turismo-seguro.com/entrega1#Registro_homicidios_2017
+:Registro_homicidios_2017 rdf:type owl:Class .
+
+
+###  http://www.turismo-seguro.com/entrega1#Registro_hurto_a_personas_2017
+:Registro_hurto_a_personas_2017 rdf:type owl:Class .
+
+
+###  http://www.turismo-seguro.com/entrega1#Registro_lesiones_personales_2017
+:Registro_lesiones_personales_2017 rdf:type owl:Class .
+
+
+###  http://www.turismo-seguro.com/entrega1#Sitio_turistico
+:Sitio_turistico rdf:type owl:Class .
+
+
+#################################################################
+#    General axioms
+#################################################################
+
+[ rdf:type owl:AllDisjointClasses ;
+  owl:members ( :Arma_empleada
+                :Barrio
+                :Departamento
+                :Municipio
+                :Pais
+                :Persona_capturada
+                :Persona_victima
+                :Registro_capturas_2017
+                :Registro_homicidios_2017
+                :Registro_hurto_a_personas_2017
+                :Registro_lesiones_personales_2017
+              )
+] .
+
+
+[ rdf:type owl:AllDisjointClasses ;
+  owl:members ( :Arma_empleada
+                :Barrio
+                :Departamento
+                :Municipio
+                :Pais
+                :Persona_capturada
+                :Persona_victima
+                :Registro_capturas_2017
+                :Registro_homicidios_2017
+                :Registro_hurto_a_personas_2017
+                :Registro_lesiones_personales_2017
+                :Sitio_turistico
+              )
+] .
+
+
+[ rdf:type owl:AllDisjointClasses ;
+  owl:members ( :Arma_empleada
+                :Barrio
+                :Departamento
+                :Municipio
+                :Persona_capturada
+                :Persona_victima
+                :Registro_capturas_2017
+                :Registro_homicidios_2017
+                :Registro_hurto_a_personas_2017
+                :Registro_lesiones_personales_2017
+              )
+] .
+
+
+###  Generated by the OWL API (version 4.2.8.20170104-2310) https://github.com/owlcs/owlapi
