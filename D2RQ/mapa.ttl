@@ -1,0 +1,535 @@
+@prefix map: <#> .
+@prefix db: <> .
+@prefix vocab: <vocab/> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix d2rq: <http://www.wiwiss.fu-berlin.de/suhl/bizer/D2RQ/0.1#> .
+@prefix jdbc: <http://d2rq.org/terms/jdbc/> .
+
+map:database a d2rq:Database;
+	d2rq:jdbcDriver "com.mysql.jdbc.Driver";
+	d2rq:jdbcDSN "jdbc:mysql:///bdiw";
+	d2rq:username "root";
+	d2rq:password "";
+	jdbc:autoReconnect "true";
+	jdbc:zeroDateTimeBehavior "convertToNull";
+	.
+
+# Table capturas
+map:capturas a d2rq:ClassMap;
+	d2rq:dataStorage map:database;
+	# Sorry, I don't know which columns to put into the uriPattern
+	#     for "capturas" because the table doesn't have a primary key.
+	#     Please specify it manually.
+	d2rq:uriPattern "capturas";
+	d2rq:class vocab:capturas;
+	d2rq:classDefinitionLabel "capturas";
+	.
+map:capturas_Fecha a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:capturas;
+	d2rq:property vocab:capturas_Fecha;
+	d2rq:propertyDefinitionLabel "capturas Fecha";
+	d2rq:column "capturas.Fecha";
+	d2rq:datatype xsd:date;
+	.
+map:capturas_Departamento a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:capturas;
+	d2rq:property vocab:capturas_Departamento;
+	d2rq:propertyDefinitionLabel "capturas Departamento";
+	d2rq:column "capturas.Departamento";
+	.
+map:capturas_Municipio a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:capturas;
+	d2rq:property vocab:capturas_Municipio;
+	d2rq:propertyDefinitionLabel "capturas Municipio";
+	d2rq:column "capturas.Municipio";
+	.
+map:capturas_Dia a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:capturas;
+	d2rq:property vocab:capturas_Dia;
+	d2rq:propertyDefinitionLabel "capturas Dia";
+	d2rq:column "capturas.Dia";
+	.
+map:capturas_Hora a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:capturas;
+	d2rq:property vocab:capturas_Hora;
+	d2rq:propertyDefinitionLabel "capturas Hora";
+	d2rq:column "capturas.Hora";
+	.
+map:capturas_Barrio a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:capturas;
+	d2rq:property vocab:capturas_Barrio;
+	d2rq:propertyDefinitionLabel "capturas Barrio";
+	d2rq:column "capturas.Barrio";
+	.
+map:capturas_Zona a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:capturas;
+	d2rq:property vocab:capturas_Zona;
+	d2rq:propertyDefinitionLabel "capturas Zona";
+	d2rq:column "capturas.Zona";
+	d2rq:datatype xsd:integer;
+	.
+<#capturas_Clase%20de%20sitio> a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:capturas;
+	d2rq:property <vocab/capturas_Clase%20de%20sitio>;
+	d2rq:propertyDefinitionLabel "capturas Clase de sitio";
+	d2rq:column "capturas.Clase de sitio";
+	.
+map:capturas_Edad a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:capturas;
+	d2rq:property vocab:capturas_Edad;
+	d2rq:propertyDefinitionLabel "capturas Edad";
+	d2rq:column "capturas.Edad";
+	d2rq:datatype xsd:integer;
+	.
+map:capturas_Sexo a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:capturas;
+	d2rq:property vocab:capturas_Sexo;
+	d2rq:propertyDefinitionLabel "capturas Sexo";
+	d2rq:column "capturas.Sexo";
+	.
+<#capturas_Estado%20civil> a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:capturas;
+	d2rq:property <vocab/capturas_Estado%20civil>;
+	d2rq:propertyDefinitionLabel "capturas Estado civil";
+	d2rq:column "capturas.Estado civil";
+	.
+<#capturas_Clase%20de%20empleado> a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:capturas;
+	d2rq:property <vocab/capturas_Clase%20de%20empleado>;
+	d2rq:propertyDefinitionLabel "capturas Clase de empleado";
+	d2rq:column "capturas.Clase de empleado";
+	.
+map:capturas_Profesion a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:capturas;
+	d2rq:property vocab:capturas_Profesion;
+	d2rq:propertyDefinitionLabel "capturas Profesion";
+	d2rq:column "capturas.Profesion";
+	.
+<#capturas_Codigo%20DANE> a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:capturas;
+	d2rq:property <vocab/capturas_Codigo%20DANE>;
+	d2rq:propertyDefinitionLabel "capturas Codigo DANE";
+	d2rq:column "capturas.Codigo DANE";
+	d2rq:datatype xsd:integer;
+	.
+<#capturas_Delito%20Captura> a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:capturas;
+	d2rq:property <vocab/capturas_Delito%20Captura>;
+	d2rq:propertyDefinitionLabel "capturas Delito Captura";
+	d2rq:column "capturas.Delito Captura";
+	.
+map:capturas_Cantidad a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:capturas;
+	d2rq:property vocab:capturas_Cantidad;
+	d2rq:propertyDefinitionLabel "capturas Cantidad";
+	d2rq:column "capturas.Cantidad";
+	d2rq:datatype xsd:integer;
+	.
+
+# Table homicidios
+map:homicidios a d2rq:ClassMap;
+	d2rq:dataStorage map:database;
+	# Sorry, I don't know which columns to put into the uriPattern
+	#     for "homicidios" because the table doesn't have a primary key.
+	#     Please specify it manually.
+	d2rq:uriPattern "homicidios";
+	d2rq:class vocab:homicidios;
+	d2rq:classDefinitionLabel "homicidios";
+	.
+map:homicidios_Fecha a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:homicidios;
+	d2rq:property vocab:homicidios_Fecha;
+	d2rq:propertyDefinitionLabel "homicidios Fecha";
+	d2rq:column "homicidios.Fecha";
+	.
+map:homicidios_Departamento a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:homicidios;
+	d2rq:property vocab:homicidios_Departamento;
+	d2rq:propertyDefinitionLabel "homicidios Departamento";
+	d2rq:column "homicidios.Departamento";
+	.
+map:homicidios_Municipio a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:homicidios;
+	d2rq:property vocab:homicidios_Municipio;
+	d2rq:propertyDefinitionLabel "homicidios Municipio";
+	d2rq:column "homicidios.Municipio";
+	.
+map:homicidios_Dia a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:homicidios;
+	d2rq:property vocab:homicidios_Dia;
+	d2rq:propertyDefinitionLabel "homicidios Dia";
+	d2rq:column "homicidios.Dia";
+	.
+map:homicidios_Hora a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:homicidios;
+	d2rq:property vocab:homicidios_Hora;
+	d2rq:propertyDefinitionLabel "homicidios Hora";
+	d2rq:column "homicidios.Hora";
+	.
+map:homicidios_Barrio a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:homicidios;
+	d2rq:property vocab:homicidios_Barrio;
+	d2rq:propertyDefinitionLabel "homicidios Barrio";
+	d2rq:column "homicidios.Barrio";
+	.
+map:homicidios_Zona a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:homicidios;
+	d2rq:property vocab:homicidios_Zona;
+	d2rq:propertyDefinitionLabel "homicidios Zona";
+	d2rq:column "homicidios.Zona";
+	d2rq:datatype xsd:integer;
+	.
+<#homicidios_Clase%20de%20sitio> a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:homicidios;
+	d2rq:property <vocab/homicidios_Clase%20de%20sitio>;
+	d2rq:propertyDefinitionLabel "homicidios Clase de sitio";
+	d2rq:column "homicidios.Clase de sitio";
+	.
+<#homicidios_Arma%20empleada> a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:homicidios;
+	d2rq:property <vocab/homicidios_Arma%20empleada>;
+	d2rq:propertyDefinitionLabel "homicidios Arma empleada";
+	d2rq:column "homicidios.Arma empleada";
+	.
+<#homicidios_Movil%20Agresor> a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:homicidios;
+	d2rq:property <vocab/homicidios_Movil%20Agresor>;
+	d2rq:propertyDefinitionLabel "homicidios Movil Agresor";
+	d2rq:column "homicidios.Movil Agresor";
+	.
+<#homicidios_Movil%20Victima> a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:homicidios;
+	d2rq:property <vocab/homicidios_Movil%20Victima>;
+	d2rq:propertyDefinitionLabel "homicidios Movil Victima";
+	d2rq:column "homicidios.Movil Victima";
+	.
+map:homicidios_Edad a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:homicidios;
+	d2rq:property vocab:homicidios_Edad;
+	d2rq:propertyDefinitionLabel "homicidios Edad";
+	d2rq:column "homicidios.Edad";
+	d2rq:datatype xsd:integer;
+	.
+map:homicidios_Sexo a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:homicidios;
+	d2rq:property vocab:homicidios_Sexo;
+	d2rq:propertyDefinitionLabel "homicidios Sexo";
+	d2rq:column "homicidios.Sexo";
+	.
+<#homicidios_Estado%20civil> a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:homicidios;
+	d2rq:property <vocab/homicidios_Estado%20civil>;
+	d2rq:propertyDefinitionLabel "homicidios Estado civil";
+	d2rq:column "homicidios.Estado civil";
+	.
+<#homicidios_Pais%20de%20nacimiento> a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:homicidios;
+	d2rq:property <vocab/homicidios_Pais%20de%20nacimiento>;
+	d2rq:propertyDefinitionLabel "homicidios Pais de nacimiento";
+	d2rq:column "homicidios.Pais de nacimiento";
+	.
+<#homicidios_Clase%20de%20empleado> a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:homicidios;
+	d2rq:property <vocab/homicidios_Clase%20de%20empleado>;
+	d2rq:propertyDefinitionLabel "homicidios Clase de empleado";
+	d2rq:column "homicidios.Clase de empleado";
+	.
+map:homicidios_Profesion a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:homicidios;
+	d2rq:property vocab:homicidios_Profesion;
+	d2rq:propertyDefinitionLabel "homicidios Profesion";
+	d2rq:column "homicidios.Profesion";
+	.
+map:homicidios_Escolaridad a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:homicidios;
+	d2rq:property vocab:homicidios_Escolaridad;
+	d2rq:propertyDefinitionLabel "homicidios Escolaridad";
+	d2rq:column "homicidios.Escolaridad";
+	.
+<#homicidios_Codigo%20DANE> a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:homicidios;
+	d2rq:property <vocab/homicidios_Codigo%20DANE>;
+	d2rq:propertyDefinitionLabel "homicidios Codigo DANE";
+	d2rq:column "homicidios.Codigo DANE";
+	d2rq:datatype xsd:integer;
+	.
+map:homicidios_Cantidad a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:homicidios;
+	d2rq:property vocab:homicidios_Cantidad;
+	d2rq:propertyDefinitionLabel "homicidios Cantidad";
+	d2rq:column "homicidios.Cantidad";
+	d2rq:datatype xsd:integer;
+	.
+
+# Table hurto
+map:hurto a d2rq:ClassMap;
+	d2rq:dataStorage map:database;
+	# Sorry, I don't know which columns to put into the uriPattern
+	#     for "hurto" because the table doesn't have a primary key.
+	#     Please specify it manually.
+	d2rq:uriPattern "hurto";
+	d2rq:class vocab:hurto;
+	d2rq:classDefinitionLabel "hurto";
+	.
+map:hurto_Fecha a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:hurto;
+	d2rq:property vocab:hurto_Fecha;
+	d2rq:propertyDefinitionLabel "hurto Fecha";
+	d2rq:column "hurto.Fecha";
+	.
+map:hurto_Departamento a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:hurto;
+	d2rq:property vocab:hurto_Departamento;
+	d2rq:propertyDefinitionLabel "hurto Departamento";
+	d2rq:column "hurto.Departamento";
+	.
+map:hurto_Municipio a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:hurto;
+	d2rq:property vocab:hurto_Municipio;
+	d2rq:propertyDefinitionLabel "hurto Municipio";
+	d2rq:column "hurto.Municipio";
+	.
+map:hurto_Dia a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:hurto;
+	d2rq:property vocab:hurto_Dia;
+	d2rq:propertyDefinitionLabel "hurto Dia";
+	d2rq:column "hurto.Dia";
+	.
+map:hurto_Hora a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:hurto;
+	d2rq:property vocab:hurto_Hora;
+	d2rq:propertyDefinitionLabel "hurto Hora";
+	d2rq:column "hurto.Hora";
+	.
+map:hurto_Barrio a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:hurto;
+	d2rq:property vocab:hurto_Barrio;
+	d2rq:propertyDefinitionLabel "hurto Barrio";
+	d2rq:column "hurto.Barrio";
+	.
+map:hurto_Zona a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:hurto;
+	d2rq:property vocab:hurto_Zona;
+	d2rq:propertyDefinitionLabel "hurto Zona";
+	d2rq:column "hurto.Zona";
+	d2rq:datatype xsd:integer;
+	.
+<#hurto_Clase%20de%20sitio> a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:hurto;
+	d2rq:property <vocab/hurto_Clase%20de%20sitio>;
+	d2rq:propertyDefinitionLabel "hurto Clase de sitio";
+	d2rq:column "hurto.Clase de sitio";
+	.
+<#hurto_Arma%20empleada> a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:hurto;
+	d2rq:property <vocab/hurto_Arma%20empleada>;
+	d2rq:propertyDefinitionLabel "hurto Arma empleada";
+	d2rq:column "hurto.Arma empleada";
+	.
+<#hurto_Movil%20Agresor> a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:hurto;
+	d2rq:property <vocab/hurto_Movil%20Agresor>;
+	d2rq:propertyDefinitionLabel "hurto Movil Agresor";
+	d2rq:column "hurto.Movil Agresor";
+	.
+<#hurto_Movil%20Victima> a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:hurto;
+	d2rq:property <vocab/hurto_Movil%20Victima>;
+	d2rq:propertyDefinitionLabel "hurto Movil Victima";
+	d2rq:column "hurto.Movil Victima";
+	.
+map:hurto_Edad a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:hurto;
+	d2rq:property vocab:hurto_Edad;
+	d2rq:propertyDefinitionLabel "hurto Edad";
+	d2rq:column "hurto.Edad";
+	d2rq:datatype xsd:integer;
+	.
+map:hurto_Sexo a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:hurto;
+	d2rq:property vocab:hurto_Sexo;
+	d2rq:propertyDefinitionLabel "hurto Sexo";
+	d2rq:column "hurto.Sexo";
+	.
+<#hurto_Estado%20civil> a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:hurto;
+	d2rq:property <vocab/hurto_Estado%20civil>;
+	d2rq:propertyDefinitionLabel "hurto Estado civil";
+	d2rq:column "hurto.Estado civil";
+	.
+<#hurto_Pais%20de%20nacimiento> a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:hurto;
+	d2rq:property <vocab/hurto_Pais%20de%20nacimiento>;
+	d2rq:propertyDefinitionLabel "hurto Pais de nacimiento";
+	d2rq:column "hurto.Pais de nacimiento";
+	.
+<#hurto_Clase%20de%20empleado> a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:hurto;
+	d2rq:property <vocab/hurto_Clase%20de%20empleado>;
+	d2rq:propertyDefinitionLabel "hurto Clase de empleado";
+	d2rq:column "hurto.Clase de empleado";
+	.
+map:hurto_Profesion a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:hurto;
+	d2rq:property vocab:hurto_Profesion;
+	d2rq:propertyDefinitionLabel "hurto Profesion";
+	d2rq:column "hurto.Profesion";
+	.
+map:hurto_Escolaridad a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:hurto;
+	d2rq:property vocab:hurto_Escolaridad;
+	d2rq:propertyDefinitionLabel "hurto Escolaridad";
+	d2rq:column "hurto.Escolaridad";
+	.
+<#hurto_Codigo%20DANE> a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:hurto;
+	d2rq:property <vocab/hurto_Codigo%20DANE>;
+	d2rq:propertyDefinitionLabel "hurto Codigo DANE";
+	d2rq:column "hurto.Codigo DANE";
+	d2rq:datatype xsd:integer;
+	.
+map:hurto_Cantidad a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:hurto;
+	d2rq:property vocab:hurto_Cantidad;
+	d2rq:propertyDefinitionLabel "hurto Cantidad";
+	d2rq:column "hurto.Cantidad";
+	d2rq:datatype xsd:integer;
+	.
+
+# Table lesiones
+map:lesiones a d2rq:ClassMap;
+	d2rq:dataStorage map:database;
+	# Sorry, I don't know which columns to put into the uriPattern
+	#     for "lesiones" because the table doesn't have a primary key.
+	#     Please specify it manually.
+	d2rq:uriPattern "lesiones";
+	d2rq:class vocab:lesiones;
+	d2rq:classDefinitionLabel "lesiones";
+	.
+map:lesiones_Fecha a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:lesiones;
+	d2rq:property vocab:lesiones_Fecha;
+	d2rq:propertyDefinitionLabel "lesiones Fecha";
+	d2rq:column "lesiones.Fecha";
+	.
+map:lesiones_Departamento a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:lesiones;
+	d2rq:property vocab:lesiones_Departamento;
+	d2rq:propertyDefinitionLabel "lesiones Departamento";
+	d2rq:column "lesiones.Departamento";
+	.
+map:lesiones_Municipio a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:lesiones;
+	d2rq:property vocab:lesiones_Municipio;
+	d2rq:propertyDefinitionLabel "lesiones Municipio";
+	d2rq:column "lesiones.Municipio";
+	.
+map:lesiones_Dia a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:lesiones;
+	d2rq:property vocab:lesiones_Dia;
+	d2rq:propertyDefinitionLabel "lesiones Dia";
+	d2rq:column "lesiones.Dia";
+	.
+map:lesiones_Hora a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:lesiones;
+	d2rq:property vocab:lesiones_Hora;
+	d2rq:propertyDefinitionLabel "lesiones Hora";
+	d2rq:column "lesiones.Hora";
+	.
+map:lesiones_Barrio a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:lesiones;
+	d2rq:property vocab:lesiones_Barrio;
+	d2rq:propertyDefinitionLabel "lesiones Barrio";
+	d2rq:column "lesiones.Barrio";
+	.
+map:lesiones_Zona a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:lesiones;
+	d2rq:property vocab:lesiones_Zona;
+	d2rq:propertyDefinitionLabel "lesiones Zona";
+	d2rq:column "lesiones.Zona";
+	d2rq:datatype xsd:integer;
+	.
+<#lesiones_Clase%20de%20sitio> a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:lesiones;
+	d2rq:property <vocab/lesiones_Clase%20de%20sitio>;
+	d2rq:propertyDefinitionLabel "lesiones Clase de sitio";
+	d2rq:column "lesiones.Clase de sitio";
+	.
+<#lesiones_Arma%20empleada> a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:lesiones;
+	d2rq:property <vocab/lesiones_Arma%20empleada>;
+	d2rq:propertyDefinitionLabel "lesiones Arma empleada";
+	d2rq:column "lesiones.Arma empleada";
+	.
+<#lesiones_Movil%20Agresor> a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:lesiones;
+	d2rq:property <vocab/lesiones_Movil%20Agresor>;
+	d2rq:propertyDefinitionLabel "lesiones Movil Agresor";
+	d2rq:column "lesiones.Movil Agresor";
+	.
+<#lesiones_Movil%20Victima> a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:lesiones;
+	d2rq:property <vocab/lesiones_Movil%20Victima>;
+	d2rq:propertyDefinitionLabel "lesiones Movil Victima";
+	d2rq:column "lesiones.Movil Victima";
+	.
+map:lesiones_Edad a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:lesiones;
+	d2rq:property vocab:lesiones_Edad;
+	d2rq:propertyDefinitionLabel "lesiones Edad";
+	d2rq:column "lesiones.Edad";
+	d2rq:datatype xsd:integer;
+	.
+map:lesiones_Sexo a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:lesiones;
+	d2rq:property vocab:lesiones_Sexo;
+	d2rq:propertyDefinitionLabel "lesiones Sexo";
+	d2rq:column "lesiones.Sexo";
+	.
+<#lesiones_Estado%20civil> a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:lesiones;
+	d2rq:property <vocab/lesiones_Estado%20civil>;
+	d2rq:propertyDefinitionLabel "lesiones Estado civil";
+	d2rq:column "lesiones.Estado civil";
+	.
+<#lesiones_Pais%20de%20nacimiento> a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:lesiones;
+	d2rq:property <vocab/lesiones_Pais%20de%20nacimiento>;
+	d2rq:propertyDefinitionLabel "lesiones Pais de nacimiento";
+	d2rq:column "lesiones.Pais de nacimiento";
+	.
+<#lesiones_Clase%20de%20empleado> a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:lesiones;
+	d2rq:property <vocab/lesiones_Clase%20de%20empleado>;
+	d2rq:propertyDefinitionLabel "lesiones Clase de empleado";
+	d2rq:column "lesiones.Clase de empleado";
+	.
+map:lesiones_Profesion a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:lesiones;
+	d2rq:property vocab:lesiones_Profesion;
+	d2rq:propertyDefinitionLabel "lesiones Profesion";
+	d2rq:column "lesiones.Profesion";
+	.
+map:lesiones_Escolaridad a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:lesiones;
+	d2rq:property vocab:lesiones_Escolaridad;
+	d2rq:propertyDefinitionLabel "lesiones Escolaridad";
+	d2rq:column "lesiones.Escolaridad";
+	.
+<#lesiones_Codigo%20DANE> a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:lesiones;
+	d2rq:property <vocab/lesiones_Codigo%20DANE>;
+	d2rq:propertyDefinitionLabel "lesiones Codigo DANE";
+	d2rq:column "lesiones.Codigo DANE";
+	d2rq:datatype xsd:integer;
+	.
+map:lesiones_Cantidad a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:lesiones;
+	d2rq:property vocab:lesiones_Cantidad;
+	d2rq:propertyDefinitionLabel "lesiones Cantidad";
+	d2rq:column "lesiones.Cantidad";
+	d2rq:datatype xsd:integer;
+	.
+
